@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../../../rapidminerreferencemanual/documentation2html.xsl"?>
+<p1:documents xmlns:p1="http://rapid-i.com/schemas/documentation/reference/1.0"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://rapid-i.com/schemas/documentation/reference/1.0 ">
+
+    <operator key="operator.google_cloud_platform:cloud_speech" locale="en"
+              version="6.0.000">
+        <title>Google Cloud Speech API</title>
+        <synopsis>Convert audio to text by applying powerful neural network models. This operator opens an audio file and transcribes its content to text using the Google Cloud Speech API.</synopsis>
+        <outputPorts>
+            <port name="output" type="com.rapidminer.example.ExampleSet">
+                ExampleSet containing a transcription of the audio file and the associated confidence.
+            </port>
+        </outputPorts>
+    </operator>
+    
+</p1:documents>

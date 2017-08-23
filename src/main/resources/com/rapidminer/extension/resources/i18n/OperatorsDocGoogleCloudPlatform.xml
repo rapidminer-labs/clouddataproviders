@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<operatorHelp lang="en_EN">
+    <operator>
+      <key>cloud_speech</key>
+      <name>Google Cloud Speech API</name>
+    </operator>
+
+    <group>
+      <key>google_cloud_platform</key>
+      <name>Google Cloud Platform</name>
+    </group>
+
+</operatorHelp>
