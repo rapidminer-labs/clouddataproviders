@@ -207,7 +207,7 @@ public class VisionAPIREST extends Operator {
 			try {
 
 				remoteURL = this.getParameterAsString("Cloud Storage Bucket URI");
-				image = new JSONObject().put("source", remoteURL);
+				image = new JSONObject().put("source", new JSONObject().put("imageUri", remoteURL));
 				
 				request = new JSONObject().put("image", image).put("features", features);
 				requestBody = new JSONArray().put(0, request);
