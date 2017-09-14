@@ -6,4 +6,9 @@
 		<class>com.rapidminer.extension.operator.CloudSpeechAPIREST</class>
 		<icon>speech_icon.png</icon>
 	</operator>
+	<operator>
+		<key>vision</key>
+		<class>com.rapidminer.extension.operator.VisionAPIREST</class>
+		<icon>vision_icon.png</icon>
+	</operator>
 </operators>

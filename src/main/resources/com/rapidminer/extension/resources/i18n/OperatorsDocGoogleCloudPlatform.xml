@@ -4,6 +4,10 @@
       <key>cloud_speech</key>
       <name>Google Cloud Speech API</name>
     </operator>
+    <operator>
+    	<key>vision</key>
+    	<name>Google Vision API for OCR</name>
+    </operator>
 
     <group>
       <key>google_cloud_platform</key>
