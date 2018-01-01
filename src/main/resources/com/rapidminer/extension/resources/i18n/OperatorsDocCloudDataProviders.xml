@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><operatorHelp lang="en_EN">
+<group>
+<key>cloud_data_providers</key>
+<name>Cloud Data Providers</name>
+</group>
+  <group>
+    <key>twingly</key>
+    <name>Twingly</name>
+  </group>
+  <operator>
+    <key>searchblogs</key>
+    <name>Search Blogs</name>
+  </operator>
+</operatorHelp>

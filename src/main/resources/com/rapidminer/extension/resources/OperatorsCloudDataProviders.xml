@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?><operators name="CloudDataProviders" version="6.0" docbundle="com/rapidminer/extension/resources/i18n/OperatorsDocCloudDataProviders">
+
+  <group key="twingly">
+    <operator>
+      <key>searchblogs</key>
+      <class>com.rapidminer.extension.twingly.operator.SearchBlogsOperator</class>
+    </operator>
+  </group>
+  <group xmlns="" key="">
+    <operator>
+      <key>searchnews</key>
+      <class>com.rapidminer.extension.twingly.operator.SearchNewsOperator</class>
+    </operator>
+  </group>
+</operators>

@@ -30,9 +30,9 @@ import com.rapidminer.gui.MainFrame;
  *
  * @author REPLACEME
  */
-public final class PluginInitGoogleCloudPlatform {
+public final class PluginInitCloudDataProviders {
 
-		private PluginInitGoogleCloudPlatform() {
+		private PluginInitCloudDataProviders() {
 				// Utility class constructor
 		}
 
