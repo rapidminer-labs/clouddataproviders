@@ -4,12 +4,13 @@
     <operator>
       <key>searchblogs</key>
       <class>com.rapidminer.extension.twingly.operator.SearchBlogsOperator</class>
+      <icon>twingly.png</icon>
     </operator>
-  </group>
-  <group xmlns="" key="">
-    <operator>
+  <!--    <operator>
       <key>searchnews</key>
       <class>com.rapidminer.extension.twingly.operator.SearchNewsOperator</class>
     </operator>
+  -->
   </group>
+ 
 </operators>

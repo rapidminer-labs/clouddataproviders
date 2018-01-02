@@ -7,11 +7,14 @@
     <operator key="operator.twingly:searchblogs" locale="en"
               version="6.0.000">
         <title>SearchBlogs</title>
-        <synopsis>This is a short example synopsis which needs to be replaced.
+        <synopsis>This operator can be used for searching for words in blog articles indexed by Twingly.
+        
         </synopsis>
         <text>
             <paragraph>First paragraph.</paragraph>
-            <paragraph>Second paragraph.</paragraph>
+            <paragraph>Please note that parameters not supported thru UI can be appended to search query string. Appending parameters that are also defined in UI will give unexpected results
+            How to use additional options like language, specific sites, location etc can be found here https://developer.twingly.com/resources/search-language/
+            </paragraph>
         </text>
         <inputPorts>
             <!--<port name="input" type="com.rapidminer.example.ExampleSet">
@@ -19,9 +22,9 @@
             </port>-->
         </inputPorts>
         <outputPorts>
-            <!--<port name="output" type="com.rapidminer.example.ExampleSet">
-                Output port description.
-            </port>-->
+            <port name="output" type="com.rapidminer.example.ExampleSet">
+                Output dataset/result .
+            </port>
         </outputPorts>
 
         <!-- description of the parameters and the corresponding values -->

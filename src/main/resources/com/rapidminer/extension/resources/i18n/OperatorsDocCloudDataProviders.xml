@@ -11,4 +11,10 @@
     <key>searchblogs</key>
     <name>Search Blogs</name>
   </operator>
+  <!-- 
+   <operator>
+    <key>searchnews</key>
+    <name>Search News</name>
+  </operator>-->
+  
 </operatorHelp>
