@@ -1,7 +1,7 @@
 Cloud Data Providers
 =============================
 
-A  project for creating a RapidMiner operators to get data from various cloud providers 
+A  project for creating RapidMiner operators to get data from various cloud providers 
 
 
 

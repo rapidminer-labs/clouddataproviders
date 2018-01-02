@@ -6,11 +6,18 @@
       <class>com.rapidminer.extension.twingly.operator.SearchBlogsOperator</class>
       <icon>twingly.png</icon>
     </operator>
-  <!--    <operator>
+  </group>
+   <group key="quandl">
+  <operator>
+  	<key>downloadtimeseries</key>
+  	<class>com.rapidminer.extension.quandl.operator.QuandlDownLoadTimeSeries</class>
+  	 <icon>quandl.png</icon>
+  </operator>
+  </group>
+  
+</operators>
+ <!--    <operator>
       <key>searchnews</key>
       <class>com.rapidminer.extension.twingly.operator.SearchNewsOperator</class>
     </operator>
   -->
-  </group>
- 
-</operators>
