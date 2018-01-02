@@ -1,7 +1,7 @@
 Cloud Data Providers
 =============================
 
-A template project for creating a RapidMiner Studio extension. 
+A  project for creating a RapidMiner operators to get data from various cloud providers 
 
 
 
