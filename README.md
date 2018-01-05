@@ -12,7 +12,8 @@ A  project for creating RapidMiner operators to get data from various cloud prov
 
 ### Feel free to propose new API's to be added by editing this file or mailing bpatil@rapidminer.com
 
-Some other API's under consideration
+Some other API's under consideration 
+
 kickfire.com 
 
 Xignite 
