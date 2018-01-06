@@ -29,7 +29,7 @@ ESRI Geo API
 Google Maps API 
 
 
-### From Scott 
+### From Scott G
 
 
 Google Cloud (https://cloud.google.com/apis/): 
@@ -42,7 +42,7 @@ Google Translate (https://cloud.google.com/translate/docs/)
  
 IBM Watson and other Bluemix APIs (https://console.bluemix.net/catalog/)
  
-Marketing / Lead Generation:
+## Marketing / Lead Generation:
 Pipl (https://pipl.com/api/) 
 
 WhitePages (https://pro.whitepages.com/developer/)  
@@ -54,17 +54,17 @@ Adobe (https://marketing.adobe.com/developer/api-explorer)
 MailChimp API (https://developer.mailchimp.com/)
  
  
-News and Information:
+## News and Information:
 CNN News (https://developer.cnn.com/docs/read/api) 
 
 Wikipedia (https://www.mediawiki.org/wiki/API:Main_page) 
 
 Oxford Dictionary API (https://developer.oxforddictionaries.com/) 
  
-Finance & Real Estate:
-                Alpha Vantage API (https://www.alphavantage.co/) 
+## Finance & Real Estate:
+Alpha Vantage API (https://www.alphavantage.co/) 
                 
-                OpenCorporate (https://api.opencorporates.com/) 
+OpenCorporate (https://api.opencorporates.com/) 
                 
 OpenExchangeRates (https://openexchangerates.org/) 
 
@@ -75,31 +75,33 @@ Coinbase API (https://developers.coinbase.com/)
 Zillow API (https://www.zillow.com/howto/api/APIOverview.htm) 
 
  
-Social Media and Reviews:
-                Twingly (Global Blog Data) 
+## Social Media and Reviews:
+
+Twingly (Global Blog Data) 
                 
-                RottenTomatoes API / Fandango API (https://developer.fandango.com/) 
+RottenTomatoes API / Fandango API (https://developer.fandango.com/) 
                 
-                Instagram API (https://www.instagram.com/developer/) 
+Instagram API (https://www.instagram.com/developer/) 
                 
 Yelp API (https://www.yelp.com/developers/documentation/v3) 
 
  
-Converters:
-                Indico API (https://indico.io/docs) 
+## Converters:
+
+Indico API (https://indico.io/docs) 
                 
-                ConvertIO API (https://convertio.co/api/) 
+ConvertIO API (https://convertio.co/api/) 
                 
 Zamzar API (https://developers.zamzar.com/)
  
-Science and Gov’t:
+## Science and Gov’t:
 U.S. Census API (https://census.gov/data/developers/data-sets.html) 
 
 U.S. Nat’l Weather Service API (http://www.weather.gov/documentation/services-web-api) 
 
 NASA (api.nasa.gov)
  
-Misc:
+## Misc:
 Validic API (FitBit kind of data - https://docs.validic.com/) 
 
 Perspective API (https://www.perspectiveapi.com/) 
