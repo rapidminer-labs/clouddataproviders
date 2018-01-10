@@ -1,10 +1,10 @@
 Cloud Data Providers
 =============================
 
-A  project for creating a RapidMiner operators to get data from various cloud providers 
+A  project for creating RapidMiner operators to get data from various cloud providers 
 
 
 
 ### List of Operators 
 1. Twingly Search Blogs 
-
+2. Quandl Download TimeSeries data

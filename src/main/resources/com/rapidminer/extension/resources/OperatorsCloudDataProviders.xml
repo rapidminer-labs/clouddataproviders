@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><operators name="CloudDataProviders" version="6.0" docbundle="com/rapidminer/extension/resources/i18n/OperatorsDocCloudDataProviders">
+<?xml version="1.0" encoding="UTF-8"?><operators name="cloud_data_providers" version="6.0" docbundle="com/rapidminer/extension/resources/i18n/OperatorsDocCloudDataProviders">
 
   <group key="twingly">
     <operator>
@@ -6,11 +6,30 @@
       <class>com.rapidminer.extension.twingly.operator.SearchBlogsOperator</class>
       <icon>twingly.png</icon>
     </operator>
-  <!--    <operator>
+  </group>
+   <group key="quandl">
+  <operator>
+  	<key>downloadtimeseries</key>
+  	<class>com.rapidminer.extension.quandl.operator.QuandlDownLoadTimeSeries</class>
+  	 <icon>quandl.png</icon>
+  </operator>
+  </group>
+  <group key="google_cloud_platform">
+   <operator>
+		<key>cloud_speech</key>
+		<class>com.rapidminer.extension.google.operator.CloudSpeechAPIREST</class>
+		<icon>speech_icon.png</icon>
+	</operator>
+	<operator>
+		<key>vision</key>
+		<class>com.rapidminer.extension.google.operator.VisionAPIREST</class>
+		<icon>vision_icon.png</icon>
+	</operator>
+	</group>
+  
+</operators>
+ <!--    <operator>
       <key>searchnews</key>
       <class>com.rapidminer.extension.twingly.operator.SearchNewsOperator</class>
     </operator>
   -->
-  </group>
- 
-</operators>

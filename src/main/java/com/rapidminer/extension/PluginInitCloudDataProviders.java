@@ -20,6 +20,8 @@
  */
 package com.rapidminer.extension;
 
+import com.rapidminer.extension.google.operator.GoogleConfigurator;
+import com.rapidminer.extension.quandl.operator.QuandlConfigurator;
 import com.rapidminer.extension.twingly.operator.TwinglyConfigurator;
 import com.rapidminer.gui.MainFrame;
 import com.rapidminer.tools.config.ConfigurationManager;
@@ -46,6 +48,8 @@ public final class PluginInitCloudDataProviders {
 		public static void initPlugin() {
 			
 			 ConfigurationManager.getInstance().register(new TwinglyConfigurator());
+			 ConfigurationManager.getInstance().register(new QuandlConfigurator());
+			 ConfigurationManager.getInstance().register(new GoogleConfigurator());
 			
 		}
 
