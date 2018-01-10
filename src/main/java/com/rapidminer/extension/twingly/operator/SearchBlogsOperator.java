@@ -38,22 +38,22 @@ import com.twingly.search.domain.Result;
 
 public class SearchBlogsOperator extends AbstractExampleSource {
 
-	private static final String Query_TERM = "Query Term";
+	private static final String PARAMETER_Query_TERM = "Query Term";
 	// private InputPort inputPort;
 	// private OutputPort outputPort;
 	private static final String PARAMETER_CONFIG = "API Connection";
-	private static final String SEARCH_TEXT = "Search Text";
-	private static final String SEARCH_TITLE = "Search Title";
-	private static final String SEARCH_URL = "Search URL ";
-	private static final String SEARCH_AUTHOR = "Search Author";
-	private static final String SEARCH_TAGS = "Search Tags";
-	private static final String SEARCH_LINKS = "Search Links";
-	private static final String SEARCH_BLOGNAME = "Search Blogname";
-	private static final String SEARCH_BLOGURL = "Search BlogURL";
-	private static final String TIMESPAN = "Timespan";
-	private static final String MAXPAGE = "Maximum Number of Pages";
-	private static final String SORTBY = "Sort By for search Results";
-	private static final String SORTORDER = "Sort Order for search Results";
+	private static final String PARAMETER_SEARCH_TEXT = "Search Text";
+	private static final String PARAMETER_SEARCH_TITLE = "Search Title";
+	private static final String PARAMETER_SEARCH_URL = "Search URL ";
+	private static final String PARAMETER_SEARCH_AUTHOR = "Search Author";
+	private static final String PARAMETER_SEARCH_TAGS = "Search Tags";
+	private static final String PARAMETER_SEARCH_LINKS = "Search Links";
+	private static final String PARAMETER_SEARCH_BLOGNAME = "Search Blogname";
+	private static final String PARAMETER_SEARCH_BLOGURL = "Search BlogURL";
+	private static final String PARAMETER_TIMESPAN = "Timespan";
+	private static final String PARAMETER_MAXPAGE = "Maximum Number of Pages";
+	private static final String PARAMETER_SORTBY = "Sort By for search Results";
+	private static final String PARAMETER_SORTORDER = "Sort Order for search Results";
 
 	/**
 	 * Default operator constructor.
@@ -70,63 +70,64 @@ public class SearchBlogsOperator extends AbstractExampleSource {
 	public List<ParameterType> getParameterTypes() {
 
 		List<ParameterType> parameterTypes = super.getParameterTypes();
+		
 
 		ParameterType type = new ParameterTypeConfigurable(PARAMETER_CONFIG,
 				"Choose a TWINGLY connection", "TWINGLY");
 		type.setOptional(false);
 		parameterTypes.add(type);
 
-		type = new ParameterTypeString(Query_TERM,
+		type = new ParameterTypeString(PARAMETER_Query_TERM,
 				"Search Term", "");
 		type.setOptional(false);
 		parameterTypes.add(type);
 		
-		type = new ParameterTypeCategory(TIMESPAN, "Time Span To Search",new String[]{"Anytime","h","12h","24h","w","m","3m"},0,false);
+		type = new ParameterTypeCategory(PARAMETER_TIMESPAN, "Time Span To Search",new String[]{"Anytime","h","12h","24h","w","m","3m"},0,false);
 		parameterTypes.add(type);
 		
 		
 		
-		type = new ParameterTypeInt(MAXPAGE, "Maximum number of pages to bring back, each page is 1000 articles", 1, 100, 5,false);
+		type = new ParameterTypeInt(PARAMETER_MAXPAGE, "Maximum number of pages to bring back, each page is 1000 articles", 1, 100, 5,false);
 		parameterTypes.add(type);
 
 		
 
-		type = new ParameterTypeCategory(SORTBY, "Sort By for Search",new String[]{"published","created","inlinks","twinglyrank"},0,false);
+		type = new ParameterTypeCategory(PARAMETER_SORTBY, "Sort By for Search",new String[]{"published","created","inlinks","twinglyrank"},0,false);
 		parameterTypes.add(type);
 	
-		type = new ParameterTypeCategory(SORTORDER, "Sort Order for Search",new String[]{"asc","desc"},1,false);
+		type = new ParameterTypeCategory(PARAMETER_SORTORDER, "Sort Order for Search",new String[]{"asc","desc"},1,false);
 		parameterTypes.add(type);
 		
 		
-		type = new ParameterTypeBoolean(SEARCH_TEXT,"Search Term in Text of the blog", true);
+		type = new ParameterTypeBoolean(PARAMETER_SEARCH_TEXT,"Search Term in Text of the blog", true);
 		type.setExpert(true);
 		parameterTypes.add(type);
 
-		type = new ParameterTypeBoolean(SEARCH_TITLE,"Search Term in title of the blog", true);
+		type = new ParameterTypeBoolean(PARAMETER_SEARCH_TITLE,"Search Term in title of the blog", true);
 		type.setExpert(true);
 		parameterTypes.add(type);
 		
-		type = new ParameterTypeBoolean(SEARCH_URL,"Search Term in url of the blog", true);
+		type = new ParameterTypeBoolean(PARAMETER_SEARCH_URL,"Search Term in url of the blog", true);
 		type.setExpert(true);
 		parameterTypes.add(type);
 		
-		type = new ParameterTypeBoolean(SEARCH_AUTHOR,"Search Term in author of the blog", true);
+		type = new ParameterTypeBoolean(PARAMETER_SEARCH_AUTHOR,"Search Term in author of the blog", true);
 		type.setExpert(true);
 		parameterTypes.add(type);
 		
-		type = new ParameterTypeBoolean(SEARCH_TAGS,"Search Term in tags for the blog", true);
+		type = new ParameterTypeBoolean(PARAMETER_SEARCH_TAGS,"Search Term in tags for the blog", true);
 		type.setExpert(true);
 		parameterTypes.add(type);
 		
-		type = new ParameterTypeBoolean(SEARCH_LINKS,"Search Term in links for  the blog", true);
+		type = new ParameterTypeBoolean(PARAMETER_SEARCH_LINKS,"Search Term in links for  the blog", true);
 		type.setExpert(true);
 		parameterTypes.add(type);
 		
-		type = new ParameterTypeBoolean(SEARCH_BLOGNAME,"Search Term in blogs name ", true);
+		type = new ParameterTypeBoolean(PARAMETER_SEARCH_BLOGNAME,"Search Term in blogs name ", true);
 		type.setExpert(true);
 		parameterTypes.add(type);
 		
-		type = new ParameterTypeBoolean(SEARCH_BLOGURL,"Search Term in blog url ", true);
+		type = new ParameterTypeBoolean(PARAMETER_SEARCH_BLOGURL,"Search Term in blog url ", true);
 		type.setExpert(true);
 		parameterTypes.add(type);
 		
@@ -246,7 +247,7 @@ public class SearchBlogsOperator extends AbstractExampleSource {
 					.info("Seconds Elapsed" + String.valueOf(secondsElapsed));
 			
 			
-			for(int pageCounter = 0; pageCounter < pageCount && pageCounter <  getParameterAsInt(MAXPAGE); pageCounter++)
+			for(int pageCounter = 0; pageCounter < pageCount && pageCounter <  getParameterAsInt(PARAMETER_MAXPAGE); pageCounter++)
 			{
 			 if(pageCounter == 0)
 			 {
@@ -342,24 +343,24 @@ public class SearchBlogsOperator extends AbstractExampleSource {
 		//QueryBuilder qb =  QueryBuilder.create(getParameterAsString(Query_TERM));
 		
 		
-		if(!getParameterAsString(TIMESPAN).equals("Anytime"))
+		if(!getParameterAsString(PARAMETER_TIMESPAN).equals("Anytime"))
 		{
-			builder.append("tspan:"+ getParameter(TIMESPAN) + " ");
+			builder.append("tspan:"+ getParameter(PARAMETER_TIMESPAN) + " ");
 		}
 		
-		builder.append("sort:" + getParameter(SORTBY) + " ");
-		builder.append("sort-order:" + getParameter(SORTORDER) + " ");
+		builder.append("sort:" + getParameter(PARAMETER_SORTBY) + " ");
+		builder.append("sort-order:" + getParameter(PARAMETER_SORTORDER) + " ");
 		
 		builder.append("page:" + String.valueOf(PageNumber)+ " ");
 		
-		if(		getParameterAsBoolean(SEARCH_AUTHOR) 
-				&& getParameterAsBoolean(SEARCH_BLOGNAME)
-				&& getParameterAsBoolean(SEARCH_BLOGURL)
-				&& getParameterAsBoolean(SEARCH_LINKS)
-				&& getParameterAsBoolean(SEARCH_TAGS)
-				&& getParameterAsBoolean(SEARCH_TEXT)
-				&& getParameterAsBoolean(SEARCH_TITLE)
-				&& getParameterAsBoolean(SEARCH_URL)
+		if(		getParameterAsBoolean(PARAMETER_SEARCH_AUTHOR) 
+				&& getParameterAsBoolean(PARAMETER_SEARCH_BLOGNAME)
+				&& getParameterAsBoolean(PARAMETER_SEARCH_BLOGURL)
+				&& getParameterAsBoolean(PARAMETER_SEARCH_LINKS)
+				&& getParameterAsBoolean(PARAMETER_SEARCH_TAGS)
+				&& getParameterAsBoolean(PARAMETER_SEARCH_TEXT)
+				&& getParameterAsBoolean(PARAMETER_SEARCH_TITLE)
+				&& getParameterAsBoolean(PARAMETER_SEARCH_URL)
 				
 				)
 				{
@@ -369,9 +370,9 @@ public class SearchBlogsOperator extends AbstractExampleSource {
 		{
 			builder.append("field:");
 			Integer added = 0;
-			if(getParameterAsBoolean(SEARCH_AUTHOR)) {added=1; builder.append("author");}
+			if(getParameterAsBoolean(PARAMETER_SEARCH_AUTHOR)) {added=1; builder.append("author");}
 			
-			if(getParameterAsBoolean(SEARCH_BLOGNAME)) {
+			if(getParameterAsBoolean(PARAMETER_SEARCH_BLOGNAME)) {
 				if(added==0)
 				{
 					builder.append("blogname");
@@ -384,7 +385,7 @@ public class SearchBlogsOperator extends AbstractExampleSource {
 				
 			}
 			
-			if(getParameterAsBoolean(SEARCH_BLOGURL)) {
+			if(getParameterAsBoolean(PARAMETER_SEARCH_BLOGURL)) {
 				if(added==0)
 				{
 					builder.append("blogurl");
@@ -396,7 +397,7 @@ public class SearchBlogsOperator extends AbstractExampleSource {
 				}	
 			}
 
-			if(getParameterAsBoolean(SEARCH_LINKS)) {
+			if(getParameterAsBoolean(PARAMETER_SEARCH_LINKS)) {
 				if(added==0)
 				{
 					builder.append("links");
@@ -408,7 +409,7 @@ public class SearchBlogsOperator extends AbstractExampleSource {
 				}	
 			}
 			
-			if(getParameterAsBoolean(SEARCH_TAGS)) {
+			if(getParameterAsBoolean(PARAMETER_SEARCH_TAGS)) {
 				if(added==0)
 				{
 					builder.append("tags");
@@ -420,7 +421,7 @@ public class SearchBlogsOperator extends AbstractExampleSource {
 				}	
 			}
 			
-			if(getParameterAsBoolean(SEARCH_TEXT)) {
+			if(getParameterAsBoolean(PARAMETER_SEARCH_TEXT)) {
 				if(added==0)
 				{
 					builder.append("text");
@@ -432,7 +433,7 @@ public class SearchBlogsOperator extends AbstractExampleSource {
 				}	
 			}
 			
-			if(getParameterAsBoolean(SEARCH_TITLE)) {
+			if(getParameterAsBoolean(PARAMETER_SEARCH_TITLE)) {
 				if(added==0)
 				{
 					builder.append("title");
@@ -443,7 +444,7 @@ public class SearchBlogsOperator extends AbstractExampleSource {
 					builder.append("|title");
 				}	
 			}
-			if(getParameterAsBoolean(SEARCH_URL)) {
+			if(getParameterAsBoolean(PARAMETER_SEARCH_URL)) {
 				if(added==0)
 				{
 					builder.append("url");
@@ -458,7 +459,7 @@ public class SearchBlogsOperator extends AbstractExampleSource {
 		
 		
 	}
-		builder.append(" " + getParameterAsString(Query_TERM));
+		builder.append(" " + getParameterAsString(PARAMETER_Query_TERM));
 		return builder.toString();
 	}
 }
