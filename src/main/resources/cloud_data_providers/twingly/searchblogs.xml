@@ -4,7 +4,7 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://rapid-i.com/schemas/documentation/reference/1.0 ">
 
-    <operator key="operator.twingly:searchblogs" locale="en"
+    <operator key="operator.cloud_data_providers:searchblogs" locale="en"
               version="6.0.000">
         <title>SearchBlogs</title>
         <synopsis>This operator can be used for searching for words in blog articles indexed by Twingly.

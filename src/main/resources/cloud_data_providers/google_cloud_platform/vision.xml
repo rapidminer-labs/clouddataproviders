@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../../../rapidminerreferencemanual/documentation2html.xsl"?>
+<p1:documents xmlns:p1="http://rapid-i.com/schemas/documentation/reference/1.0"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://rapid-i.com/schemas/documentation/reference/1.0 ">
+
+    <operator key="operator.cloud_data_providers:cloud_speech" locale="en"
+              version="6.0.000">
+        <title>Google Vision API</title>
+        <synopsis>Do OCR by applying powerful neural network models. This operator opens an image file and transcribes its content to text using the Google Cloud Speech API.</synopsis>
+        <text>
+        	<paragraph>To use the extension, go to https://console.cloud.google.com/ and click on Create project. Follow the instructions on the screen to create a new project.
+        	</paragraph>
+        	<paragraph>Then go to your project dashboard. On the left, select APIs and Services and click on Dashboard. Click on Enable APIs and Services, search for Google Vision API, right-click on it, and click on Enable.
+        	</paragraph>
+        	<paragraph>Go again to your project dashboard. On the left, select APIs and Services and click on Credentials. Click on Create credentials and select API key. Copy the API key and paste it in the API key parameter of the Google Vision API operator.
+        	</paragraph>
+        	<paragraph>Enter the correct values for the remaining parameters of the operator and run the operator to transcribe an image file of your choice.
+        	</paragraph>
+        </text>
+        <outputPorts>
+            <port name="example set" type="com.rapidminer.example.ExampleSet">
+                ExampleSet containing a transcription of the image file.
+            </port>
+        </outputPorts>
+    </operator>
+    
+</p1:documents>

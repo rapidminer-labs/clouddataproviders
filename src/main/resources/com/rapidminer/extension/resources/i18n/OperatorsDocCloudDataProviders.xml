@@ -22,4 +22,23 @@
  	<name>Download Time Series Data</name>
 </operator>
   
+
+ <operator>
+      <key>cloud_speech</key>
+      <name>Google Cloud Speech API</name>
+    </operator>
+    <operator>
+    	<key>vision</key>
+    	<name>Google Vision API for OCR</name>
+    	<tags>
+    		<tag>OCR</tag>
+    		<tag>Optical Character Recognition</tag>
+    	</tags>
+    </operator>
+
+    <group>
+      <key>google_cloud_platform</key>
+      <name>Google Cloud Platform</name>
+    </group>
+	 
 </operatorHelp>
