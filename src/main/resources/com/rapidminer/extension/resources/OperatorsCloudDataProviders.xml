@@ -52,7 +52,16 @@
 
 
 	</group>
-
+	
+	<group key="ipinfo">
+           <icon>memory.png</icon>
+           		<operator>
+					<key>ip_info_db</key>
+					<class>com.rapidminer.extension.IPInfo.operator.IPInfoDBAPIREST</class>
+					<icon>ipinfo.png</icon>
+				</operator>
+		</group>
+	
 </operators>
 <!-- <operator> <key>searchnews</key> <class>com.rapidminer.extension.twingly.operator.SearchNewsOperator</class> 
 	</operator> -->

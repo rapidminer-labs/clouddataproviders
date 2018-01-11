@@ -16,6 +16,10 @@
 		<key>google_cloud_platform</key>
 		<name>Google Cloud Platform</name>
 	</group>
+	<group>
+	<key>ipinfo</key>
+	<name>IP Info</name>
+	</group>
 
 	<operator>
 		<key>searchblogs</key>
@@ -58,7 +62,10 @@
 		<name>IP Info DB API</name>
 	</operator>
 
-
+ <operator>
+      <key>ip_info_db</key>
+      <name>IP Info DB </name>
+    </operator>
 
 
 </operatorHelp>
