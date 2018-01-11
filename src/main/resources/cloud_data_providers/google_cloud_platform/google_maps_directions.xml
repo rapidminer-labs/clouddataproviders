@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../../../../../rapidminerreferencemanual/documentation2html.xsl"?>
+<p1:documents xmlns:p1="http://rapid-i.com/schemas/documentation/reference/1.0"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://rapid-i.com/schemas/documentation/reference/1.0 ">
+
+    <operator key="operator.api_toolbox:google_maps_directions" locale="en"
+              version="8.0.000">
+        
+        <title>Google Maps Directions API</title>
+        
+        <synopsis>Find the driving directions between two street addresses using the Google Maps Directions API.</synopsis>
+        	
+        	<paragraph>To use the extension, go to https://console.cloud.google.com/ and click on Create project. Follow the instructions on the screen to create a new project.  Then go to your project dashboard. On the left, select APIs and Services and click on Dashboard. Click on Enable APIs and Services, search for Google Maps Directions API, right-click on it, and click on Enable.
+          Go again to your project dashboard. On the left, select APIs and Services and click on Credentials. Click on Create credentials and select API key. Copy the API key and paste it in the API key parameter of the Google Maps Directions API operator.
+            Select the attributes of the street addresses you wish to find the directions between.
+        	</paragraph>
+        
+        <inputPorts>
+            <port name="exa" type="com.rapidminer.example.ExampleSet">
+                The input ExampleSet
+            </port>
+        </inputPorts>
+        
+        <outputPorts>
+            <port name="out" type="com.rapidminer.example.ExampleSet">
+                The resulting ExampleSet with the API JSON response and the API Status attributes.
+            </port>
+            <port name="ori" type="com.rapidminer.example.ExampleSet">
+                The original ExampleSet.
+            </port>
+        </outputPorts>
+        
+        <parameters>
+            <parameter key="API key" type="configurable">
+				API Key for Google Cloud.
+            </parameter>
+			<parameter key="Origin address" type="configurable">
+				The address from which the directions should originate.
+            </parameter>
+			<parameter key="Destination address" type="configurable">
+				The address to which the directions should terminate.
+			</parameter>
+        </parameters>
+        
+        <tutorialProcesses>
+            <tutorialProcess key="process.api_toolbox.google_cloud.google_maps_directions" title="Google Maps Directions API">
+                <description>
+                    <paragraph>
+					This process creates example data and uses the Google Maps Directions API to find turn-by-turn directions between the two addresses.
+                    </paragraph>
+                </description>
+        			<process version="8.0.001">
+				  <context>
+				    <input/>
+				    <output/>
+				    <macros/>
+				  </context>
+				  <operator activated="true" class="process" compatibility="8.0.001" expanded="true" name="Process">
+				    <process expanded="true">
+				      <operator activated="true" class="generate_data_user_specification" compatibility="8.0.001" expanded="true" height="68" name="Generate Data by User Specification (2)" width="90" x="45" y="34">
+				        <list key="attribute_values">
+				          <parameter key="origin address" value="&quot;1 Harborside Dr, Boston, MA 02128&quot;"/>
+				          <parameter key="destination address" value="&quot;10 Milk St, Boston, MA 02108&quot;"/>
+				        </list>
+				        <list key="set_additional_roles"/>
+				      </operator>
+				      <operator activated="true" class="api_toolbox:google_maps_directions" compatibility="1.1.000" expanded="true" height="82" name="Google Maps Directions API" width="90" x="179" y="34">
+				        <parameter key="API key" value="your-api-key-here"/>
+				        <parameter key="Origin address" value="origin address"/>
+				        <parameter key="Destination address" value="destination address"/>
+				      </operator>
+				      <operator activated="true" class="text:data_to_documents" compatibility="7.5.000" expanded="true" height="68" name="Data to Documents (2)" width="90" x="313" y="34">
+				        <parameter key="select_attributes_and_weights" value="true"/>
+				        <list key="specify_weights">
+				          <parameter key="JSON" value="1.0"/>
+				        </list>
+				      </operator>
+				      <operator activated="true" class="text:combine_documents" compatibility="7.5.000" expanded="true" height="82" name="Combine Documents (2)" width="90" x="447" y="34"/>
+				      <operator activated="true" class="text:json_to_data" compatibility="7.5.000" expanded="true" height="82" name="JSON To Data (2)" width="90" x="581" y="34"/>
+				      <connect from_op="Generate Data by User Specification (2)" from_port="output" to_op="Google Maps Directions API" to_port="exa"/>
+				      <connect from_op="Google Maps Directions API" from_port="out" to_op="Data to Documents (2)" to_port="example set"/>
+				      <connect from_op="Data to Documents (2)" from_port="documents" to_op="Combine Documents (2)" to_port="documents 1"/>
+				      <connect from_op="Combine Documents (2)" from_port="document" to_op="JSON To Data (2)" to_port="documents 1"/>
+				      <connect from_op="JSON To Data (2)" from_port="example set" to_port="result 1"/>
+				      <portSpacing port="source_input 1" spacing="0"/>
+				      <portSpacing port="sink_result 1" spacing="0"/>
+				      <portSpacing port="sink_result 2" spacing="0"/>
+				    </process>
+				  </operator>
+				</process>
+            </tutorialProcess>
+        </tutorialProcesses>
+    </operator>
+    
+</p1:documents>

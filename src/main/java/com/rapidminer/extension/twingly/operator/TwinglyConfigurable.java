@@ -1,4 +1,9 @@
 package com.rapidminer.extension.twingly.operator;
+/**
+ * 
+ * @author BhupendraPatil
+ *
+ */
 
 import com.rapidminer.tools.config.AbstractConfigurable;
 

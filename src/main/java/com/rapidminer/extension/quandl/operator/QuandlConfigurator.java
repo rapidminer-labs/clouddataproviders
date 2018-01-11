@@ -7,7 +7,11 @@ import com.rapidminer.parameter.ParameterHandler;
 import com.rapidminer.parameter.ParameterType;
 import com.rapidminer.parameter.ParameterTypeString;
 import com.rapidminer.tools.config.AbstractConfigurator;
-
+/**
+ * 
+ * @author BhupendraPatil
+ *
+ */
 public class QuandlConfigurator extends AbstractConfigurator<QuandlConfigurable> {
 
 	@Override

@@ -1,4 +1,9 @@
 package com.rapidminer.extension.twingly.operator;
+/**
+ * 
+ * @author BhupendraPatil
+ *
+ */
 
 import java.util.LinkedList;
 import java.util.List;

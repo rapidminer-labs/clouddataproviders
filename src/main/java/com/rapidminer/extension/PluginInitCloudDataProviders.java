@@ -32,7 +32,7 @@ import com.rapidminer.tools.config.ConfigurationManager;
  * RapidMiner Studio. Without this class and its predefined methods, an extension will not be
  * loaded.
  *
- * @author REPLACEME
+ * @author BhupendraPatil, Scott Genzer
  */
 public final class PluginInitCloudDataProviders {
 

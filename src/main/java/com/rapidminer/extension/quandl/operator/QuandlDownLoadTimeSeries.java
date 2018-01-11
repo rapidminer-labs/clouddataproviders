@@ -1,4 +1,9 @@
 package com.rapidminer.extension.quandl.operator;
+/**
+ * 
+ * @author BhupendraPatil
+ *
+ */
 
 import java.io.InputStream;
 import java.net.URL;
