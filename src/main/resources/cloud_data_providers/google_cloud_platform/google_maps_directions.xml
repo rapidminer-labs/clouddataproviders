@@ -4,7 +4,7 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://rapid-i.com/schemas/documentation/reference/1.0 ">
 
-    <operator key="operator.api_toolbox:google_maps_directions" locale="en"
+    <operator key="operator.cloud_data_providers::google_maps_directions" locale="en"
               version="8.0.000">
         
         <title>Google Maps Directions API</title>

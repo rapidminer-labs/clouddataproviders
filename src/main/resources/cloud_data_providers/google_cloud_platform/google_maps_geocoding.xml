@@ -4,7 +4,7 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://rapid-i.com/schemas/documentation/reference/1.0 ">
 
-    <operator key="operator.api_toolbox:google_maps_geocoding" locale="en"
+    <operator key="operator.cloud_data_providers::google_maps_geocoding" locale="en"
               version="8.0.000">
         <title>Google Maps Geocoding API</title>
         <synopsis>Find the latitude and longitude of a street address using the Google Maps Geocoding API.</synopsis>

@@ -18,6 +18,8 @@ import com.rapidminer.parameter.ParameterTypeAttribute;
 import com.rapidminer.parameter.ParameterTypeString;
 import com.rapidminer.parameter.UndefinedParameterError;
 import com.rapidminer.tools.Ontology;
+import com.rapidminer.tools.config.ConfigurationManager;
+import com.rapidminer.tools.config.ParameterTypeConfigurable;
 
 import org.apache.commons.codec.binary.Base64;
 import org.json.JSONArray;
@@ -25,6 +27,7 @@ import org.json.JSONObject;
 
 import javax.annotation.Resource;
 import javax.xml.ws.WebServiceContext;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -46,8 +49,8 @@ public class GoogleMapsGeocodingAPIREST extends Operator {
 	private OutputPort oriPort = getOutputPorts().createPort("ori");
 
 	// Google Cloud API key
-	public static final String PARAMETER_API_KEY = "API key";
-	
+	//public static final String PARAMETER_API_KEY = "API key";
+	public static final String PARAMETER_CONFIG = "Select Config";
 	// Address to be Geocoded
 	public static final String PARAMETER_ADDRESS = "address";
 
@@ -75,7 +78,16 @@ public class GoogleMapsGeocodingAPIREST extends Operator {
 		exampleSet.getExampleTable().addAttribute(statusAttribute);
 		attributes.addRegular(statusAttribute);
 
-		String key = this.getParameterAsString("API key");
+		String key = "";
+		try {
+			key =  ConfigurationManager
+					.getInstance()
+					.lookup(GoogleConfigurator.TYPE_ID,
+							getParameterAsString(PARAMETER_CONFIG),
+							getProcess().getRepositoryAccessor())
+					.getParameter(GoogleConfigurator.PARAMETER_APIKEY);
+		
+		
 		String response = null;
 				
 		Attribute addressAttribute = exampleSet.getAttributes().get(PARAMETER_ADDRESS);
@@ -103,6 +115,11 @@ public class GoogleMapsGeocodingAPIREST extends Operator {
 			e.setValue(jsonOutputAttribute,response);
 
 		}
+		}
+		catch(Exception e)
+		{
+			throw new OperatorException(e.getMessage());
+		}
 
 		outputPort.deliver(exampleSet);
 		
@@ -112,6 +129,10 @@ public class GoogleMapsGeocodingAPIREST extends Operator {
 
 		// encode address to UTF-8
 		String urlEncodedAddress = URLEncoder.encode(address, "UTF-8");
+		
+		
+		
+	
 
 		// create URL
 		String tempURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + urlEncodedAddress + "&key=" + key;
@@ -142,7 +163,15 @@ public class GoogleMapsGeocodingAPIREST extends Operator {
 
 	@Override
 	public List<ParameterType> getParameterTypes() {
-		ParameterTypeString key = new ParameterTypeString(PARAMETER_API_KEY, "API Key", false, false);
+		//ParameterTypeString key = new ParameterTypeString(GoogleConfigurator.PARAMETER_APIKEY, "API Key", false, false);
+		
+		ParameterType key = new ParameterTypeConfigurable(PARAMETER_CONFIG,
+				"Choose a Google connection", "GOOGLE");
+		key.setOptional(false);
+	
+	
+		
+		
 		ParameterTypeAttribute address = new ParameterTypeAttribute(PARAMETER_ADDRESS,"address",inputPort);
 
 		List<ParameterType> parameters = new ArrayList<ParameterType>();
