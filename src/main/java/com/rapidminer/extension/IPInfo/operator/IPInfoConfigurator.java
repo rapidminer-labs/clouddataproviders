@@ -1,4 +1,4 @@
-package cloud_data_providers.ipinfo;
+package com.rapidminer.extension.IPInfo.operator;
 
 import java.util.ArrayList;
 import java.util.List;

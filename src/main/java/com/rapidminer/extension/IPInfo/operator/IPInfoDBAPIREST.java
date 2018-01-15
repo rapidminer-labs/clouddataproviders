@@ -22,6 +22,8 @@ import com.rapidminer.parameter.ParameterTypeString;
 import com.rapidminer.parameter.ParameterTypeStringCategory;
 import com.rapidminer.parameter.UndefinedParameterError;
 import com.rapidminer.tools.Ontology;
+import com.rapidminer.tools.config.ConfigurationManager;
+import com.rapidminer.tools.config.ParameterTypeConfigurable;
 
 import org.apache.commons.codec.binary.Base64;
 import org.json.JSONArray;
@@ -29,6 +31,7 @@ import org.json.JSONObject;
 
 import javax.annotation.Resource;
 import javax.xml.ws.WebServiceContext;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -49,8 +52,9 @@ public class IPInfoDBAPIREST extends Operator {
 	private final OutputPort outputPort = getOutputPorts().createPort("out");
 	private OutputPort oriPort = getOutputPorts().createPort("ori");
 
-	public static final String PARAMETER_API_KEY = "API key";
+	//public static final String PARAMETER_API_KEY = "API key";
 	public static final String PARAMETER_IP_ADDRESS = "IP address";
+	private static final String PARAMETER_CONFIG = "Select Connection";;
 	
 	@Resource
 	private WebServiceContext context;
@@ -67,10 +71,22 @@ public class IPInfoDBAPIREST extends Operator {
 		Attributes attributes = exampleSet.getAttributes();
 		oriPort.deliver(exampleSet);
 		
-		String key = getParameterAsString(PARAMETER_API_KEY);
-        if (key == null) {
-            throw new AttributeNotFoundError(this, PARAMETER_API_KEY, "");
-        }
+		//String key = getParameterAsString(PARAMETER_API_KEY);
+		
+
+		try {
+			String key =	ConfigurationManager
+					.getInstance()
+					.lookup("QUANDL",
+							getParameterAsString(PARAMETER_CONFIG),
+							getProcess().getRepositoryAccessor())
+					.getParameter("API_KEY");
+			
+		
+		
+//        if (key == null) {
+//            throw new AttributeNotFoundError(this, PARAMETER_API_KEY, "");
+//        }
         Attribute keyAttribute = exampleSet.getAttributes().get(key);
 
         String ipAddress = getParameterAsString(PARAMETER_IP_ADDRESS);
@@ -115,6 +131,11 @@ public class IPInfoDBAPIREST extends Operator {
 		}
 
 		outputPort.deliver(exampleSet);
+		}
+		catch(Exception e)
+		{
+			throw new OperatorException(e.getMessage());
+		}
 		
 	}
 
@@ -150,9 +171,17 @@ public class IPInfoDBAPIREST extends Operator {
 	@Override
 	public List<ParameterType> getParameterTypes() {
 		List<ParameterType> types = super.getParameterTypes();
-        types.add(
-                new ParameterTypeString(PARAMETER_API_KEY,"API Key",false,false)
-        );
+		
+		ParameterType type = new ParameterTypeConfigurable(PARAMETER_CONFIG,
+				"Choose a IPInfo connection", IPInfoConfigurator.TYPE_ID  );
+		type.setOptional(false);
+		
+		types.add(type);
+		
+		
+//        types.add(
+//                new ParameterTypeString(PARAMETER_API_KEY,"API Key",false,false)
+//        );
         types.add(
                 new ParameterTypeAttribute(PARAMETER_IP_ADDRESS,"IP address",inputPort)
         );        
