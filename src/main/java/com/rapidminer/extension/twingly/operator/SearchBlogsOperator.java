@@ -24,6 +24,7 @@ import com.rapidminer.operator.OperatorException;
 import com.rapidminer.operator.io.AbstractExampleSource;
 import com.rapidminer.operator.ports.OutputPort;
 import com.rapidminer.operator.preprocessing.filter.Real2Integer;
+import com.rapidminer.parameter.ParameterHandler;
 import com.rapidminer.parameter.ParameterType;
 import com.rapidminer.parameter.ParameterTypeBoolean;
 import com.rapidminer.parameter.ParameterTypeCategory;
@@ -31,6 +32,8 @@ import com.rapidminer.parameter.ParameterTypeInt;
 import com.rapidminer.parameter.ParameterTypeList;
 import com.rapidminer.parameter.ParameterTypeString;
 import com.rapidminer.parameter.UndefinedParameterError;
+import com.rapidminer.parameter.conditions.BooleanParameterCondition;
+import com.rapidminer.parameter.conditions.EqualStringCondition;
 import com.rapidminer.tools.Ontology;
 import com.rapidminer.tools.config.ConfigurationException;
 import com.rapidminer.tools.config.ConfigurationManager;
@@ -59,6 +62,7 @@ public class SearchBlogsOperator extends AbstractExampleSource {
 	private static final String PARAMETER_MAXPAGE = "Maximum Number of Pages";
 	private static final String PARAMETER_SORTBY = "Sort By for search Results";
 	private static final String PARAMETER_SORTORDER = "Sort Order for search Results";
+	private static final String PARAMETER_SEARCH_ALL = "Search All Fields";
 
 	/**
 	 * Default operator constructor.
@@ -71,10 +75,11 @@ public class SearchBlogsOperator extends AbstractExampleSource {
 
 	}
 
-	@Override
 	public List<ParameterType> getParameterTypes() {
 
 		List<ParameterType> parameterTypes = super.getParameterTypes();
+		
+		ParameterHandler parameterHandler = this.getParameterHandler();
 		
 
 		ParameterType type = new ParameterTypeConfigurable(PARAMETER_CONFIG,
@@ -104,36 +109,50 @@ public class SearchBlogsOperator extends AbstractExampleSource {
 		parameterTypes.add(type);
 		
 		
+		type = new ParameterTypeBoolean(PARAMETER_SEARCH_ALL,"Search All Fields", true);
+		type.setExpert(true);
+		parameterTypes.add(type);
+
+		
+		
 		type = new ParameterTypeBoolean(PARAMETER_SEARCH_TEXT,"Search Term in Text of the blog", true);
 		type.setExpert(true);
+		type.registerDependencyCondition(new BooleanParameterCondition(parameterHandler,PARAMETER_SEARCH_ALL,false,false));
 		parameterTypes.add(type);
 
 		type = new ParameterTypeBoolean(PARAMETER_SEARCH_TITLE,"Search Term in title of the blog", true);
 		type.setExpert(true);
+		type.registerDependencyCondition(new BooleanParameterCondition(parameterHandler,PARAMETER_SEARCH_ALL,false,false));
 		parameterTypes.add(type);
 		
 		type = new ParameterTypeBoolean(PARAMETER_SEARCH_URL,"Search Term in url of the blog", true);
 		type.setExpert(true);
+		type.registerDependencyCondition(new BooleanParameterCondition(parameterHandler,PARAMETER_SEARCH_ALL,false,false));
 		parameterTypes.add(type);
 		
 		type = new ParameterTypeBoolean(PARAMETER_SEARCH_AUTHOR,"Search Term in author of the blog", true);
 		type.setExpert(true);
+		type.registerDependencyCondition(new BooleanParameterCondition(parameterHandler,PARAMETER_SEARCH_ALL,false,false));
 		parameterTypes.add(type);
 		
 		type = new ParameterTypeBoolean(PARAMETER_SEARCH_TAGS,"Search Term in tags for the blog", true);
 		type.setExpert(true);
+		type.registerDependencyCondition(new BooleanParameterCondition(parameterHandler,PARAMETER_SEARCH_ALL,false,false));
 		parameterTypes.add(type);
 		
 		type = new ParameterTypeBoolean(PARAMETER_SEARCH_LINKS,"Search Term in links for  the blog", true);
 		type.setExpert(true);
+		type.registerDependencyCondition(new BooleanParameterCondition(parameterHandler,PARAMETER_SEARCH_ALL,false,false));
 		parameterTypes.add(type);
 		
 		type = new ParameterTypeBoolean(PARAMETER_SEARCH_BLOGNAME,"Search Term in blogs name ", true);
 		type.setExpert(true);
+		type.registerDependencyCondition(new BooleanParameterCondition(parameterHandler,PARAMETER_SEARCH_ALL,false,false));
 		parameterTypes.add(type);
 		
 		type = new ParameterTypeBoolean(PARAMETER_SEARCH_BLOGURL,"Search Term in blog url ", true);
 		type.setExpert(true);
+		type.registerDependencyCondition(new BooleanParameterCondition(parameterHandler,PARAMETER_SEARCH_ALL,false,false));
 		parameterTypes.add(type);
 		
 		
