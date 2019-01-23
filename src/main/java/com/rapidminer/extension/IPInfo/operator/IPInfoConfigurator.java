@@ -1,34 +1,37 @@
-package com.rapidminer.extension.twingly.operator;
-/**
- * 
- * @author BhupendraPatil
- *
- */
+package com.rapidminer.extension.IPInfo.operator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.rapidminer.parameter.ParameterHandler;
 import com.rapidminer.parameter.ParameterType;
+import com.rapidminer.parameter.ParameterTypeCategory;
 import com.rapidminer.parameter.ParameterTypeString;
+import com.rapidminer.parameter.conditions.EqualStringCondition;
 import com.rapidminer.tools.config.AbstractConfigurator;
 
-public class TwinglyConfigurator extends AbstractConfigurator<TwinglyConfigurable> {
+public class IPInfoConfigurator extends AbstractConfigurator<IPInfoConfigurable> {
+
+	
+	
+	public static final String PARAMETER_APIKEY = "API_Key";
+	public static final String TYPE_ID = "IPINFO";
+	//private static final String[] PARAMETER_AUTHTYPENAMES = new String[]{"API Key","OAuth Client ID","Service Account Key"};
 
 	@Override
-	public Class<TwinglyConfigurable> getConfigurableClass() {
-		return TwinglyConfigurable.class;
+	public Class<IPInfoConfigurable> getConfigurableClass() {
+		return IPInfoConfigurable.class;
 	}
 
 	@Override
 	public String getTypeId() {
-		return "TWINGLY";
+		return TYPE_ID;
 	}
 
 	@Override
 	public String getI18NBaseKey() {
 
-		return "twinglyconfig";
+		return "ipinfoconfig";
 	}
 
 	@Override

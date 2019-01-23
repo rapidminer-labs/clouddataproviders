@@ -1,9 +1,4 @@
-package com.rapidminer.extension.twingly.operator;
-/**
- * 
- * @author BhupendraPatil
- *
- */
+package com.rapidminer.extension.quandl.operator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,23 +7,27 @@ import com.rapidminer.parameter.ParameterHandler;
 import com.rapidminer.parameter.ParameterType;
 import com.rapidminer.parameter.ParameterTypeString;
 import com.rapidminer.tools.config.AbstractConfigurator;
-
-public class TwinglyConfigurator extends AbstractConfigurator<TwinglyConfigurable> {
+/**
+ * 
+ * @author BhupendraPatil
+ *
+ */
+public class QuandlConfigurator extends AbstractConfigurator<QuandlConfigurable> {
 
 	@Override
-	public Class<TwinglyConfigurable> getConfigurableClass() {
-		return TwinglyConfigurable.class;
+	public Class<QuandlConfigurable> getConfigurableClass() {
+		return QuandlConfigurable.class;
 	}
 
 	@Override
 	public String getTypeId() {
-		return "TWINGLY";
+		return "QUANDL";
 	}
 
 	@Override
 	public String getI18NBaseKey() {
 
-		return "twinglyconfig";
+		return "quandlconfig";
 	}
 
 	@Override

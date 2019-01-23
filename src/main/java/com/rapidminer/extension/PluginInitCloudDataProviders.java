@@ -20,6 +20,9 @@
  */
 package com.rapidminer.extension;
 
+import com.rapidminer.extension.IPInfo.operator.IPInfoConfigurator;
+import com.rapidminer.extension.google.operator.GoogleConfigurator;
+import com.rapidminer.extension.quandl.operator.QuandlConfigurator;
 import com.rapidminer.extension.twingly.operator.TwinglyConfigurator;
 import com.rapidminer.gui.MainFrame;
 import com.rapidminer.tools.config.ConfigurationManager;
@@ -30,7 +33,7 @@ import com.rapidminer.tools.config.ConfigurationManager;
  * RapidMiner Studio. Without this class and its predefined methods, an extension will not be
  * loaded.
  *
- * @author REPLACEME
+ * @author BhupendraPatil, Scott Genzer
  */
 public final class PluginInitCloudDataProviders {
 
@@ -46,6 +49,9 @@ public final class PluginInitCloudDataProviders {
 		public static void initPlugin() {
 			
 			 ConfigurationManager.getInstance().register(new TwinglyConfigurator());
+			 ConfigurationManager.getInstance().register(new QuandlConfigurator());
+			 ConfigurationManager.getInstance().register(new GoogleConfigurator());
+			 ConfigurationManager.getInstance().register(new IPInfoConfigurator());
 			
 		}
 

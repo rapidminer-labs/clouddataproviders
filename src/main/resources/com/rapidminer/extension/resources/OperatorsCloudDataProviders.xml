@@ -1,16 +1,67 @@
-<?xml version="1.0" encoding="UTF-8"?><operators name="CloudDataProviders" version="6.0" docbundle="com/rapidminer/extension/resources/i18n/OperatorsDocCloudDataProviders">
+<?xml version="1.0" encoding="UTF-8"?>
+<operators name="cloud_data_providers" version="6.0"
+	docbundle="com/rapidminer/extension/resources/i18n/OperatorsDocCloudDataProviders">
 
-  <group key="twingly">
-    <operator>
-      <key>searchblogs</key>
-      <class>com.rapidminer.extension.twingly.operator.SearchBlogsOperator</class>
-      <icon>twingly.png</icon>
-    </operator>
-  <!--    <operator>
-      <key>searchnews</key>
-      <class>com.rapidminer.extension.twingly.operator.SearchNewsOperator</class>
-    </operator>
-  -->
-  </group>
- 
+	<group key="twingly">
+		<operator>
+			<key>searchblogs</key>
+			<class>com.rapidminer.extension.twingly.operator.SearchBlogsOperator
+			</class>
+			<icon>twingly.png</icon>
+		</operator>
+	</group>
+	<group key="quandl">
+		<operator>
+			<key>downloadtimeseries</key>
+			<class>com.rapidminer.extension.quandl.operator.QuandlDownLoadTimeSeries
+			</class>
+			<icon>quandl.png</icon>
+		</operator>
+	</group>
+	<group key="google_cloud_platform">
+		<operator>
+			<key>cloud_speech</key>
+			<class>com.rapidminer.extension.google.operator.CloudSpeechAPIREST
+			</class>
+			<icon>speech_icon.png</icon>
+		</operator>
+		<operator>
+			<key>vision</key>
+			<class>com.rapidminer.extension.google.operator.VisionAPIREST</class>
+			<icon>vision_icon.png</icon>
+		</operator>
+
+		<operator>
+			<key>google_maps_geocoding</key>
+			<class>com.rapidminer.extension.google.operator.GoogleMapsGeocodingAPIREST
+			</class>
+			<icon>google_maps.png</icon>
+		</operator>
+		<operator>
+			<key>google_maps_directions</key>
+			<class>com.rapidminer.extension.google.operator.GoogleMapsDirectionsAPIREST
+			</class>
+			<icon>google_maps.png</icon>
+		</operator>
+		<operator>
+			<key>google_maps_distance_matrix</key>
+			<class>com.rapidminer.extension.google.operator.GoogleMapsDistanceMatrixAPIREST
+			</class>
+			<icon>google_maps.png</icon>
+		</operator>
+
+
+	</group>
+	
+	<group key="ipinfo">
+           <icon>memory.png</icon>
+           		<operator>
+					<key>ip_info_db</key>
+					<class>com.rapidminer.extension.IPInfo.operator.IPInfoDBAPIREST</class>
+					<icon>ipinfo.png</icon>
+				</operator>
+		</group>
+	
 </operators>
+<!-- <operator> <key>searchnews</key> <class>com.rapidminer.extension.twingly.operator.SearchNewsOperator</class> 
+	</operator> -->
